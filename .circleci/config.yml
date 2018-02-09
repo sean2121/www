@@ -12,6 +12,12 @@ jobs:
 
     working_directory: ~/sean2121.github.io
 
+    dependencies:
+      cache_directories:
+        - "vendor/bundle"
+          override:
+        - bundle -j4 --path=vendor/bundle
+
     steps:
       - checkout
 
