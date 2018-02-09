@@ -1,11 +1,30 @@
-machine:
-  environment:
-    NOKOGIRI_USE_SYSTEM_LIBRARIES: true # speeds up installation of html-proofer
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/ruby:2.4-node
+      
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
 
-dependencies:
-  post:
-    - bundle exec jekyll build
+    working_directory: ~/sean2121.github.io
 
-test:
-  post:
-    - bundle exec htmlproofer ./_site --allow-hash-href --check-favicon --check-html --disable-external
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+
+      - run:
+          name: Ruby dependencies
+          command: bundle install
+
+      - run:
+          name: Build
+          command: bundle exec jekyll build --verbose
+      
+      - run:
+          name: Test
+          command: bundle exec htmlproofer ./_site --check-html --disable-external
