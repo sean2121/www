@@ -26,9 +26,9 @@ jobs:
           name: Build
           command: bundle exec jekyll build --verbose
       
-      - run:
-          name: Test
-          command: bundle exec htmlproofer ./_site --check-html --disable-external
+     # - run:
+     #     name: Test
+     #     command: bundle exec htmlproofer ./_site --check-html --disable-external
 
       - add_ssh_keys:
           fingerprints: f8:3d:0c:5f:da:a3:d9:a0:21:0d:e8:23:6d:da:29:50
