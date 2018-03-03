@@ -20,7 +20,7 @@ jobs:
       - run:
          name: Delopy
          command: |
-             echo '150.95.141.52 SHA256:V28nTib5yVUv+xLqU7O1TYDL6vprbl8IDsd8Cb756sY.' >> ~/sean2121.github.io/.ssh/known_hosts 
+             echo '150.95.141.52 SHA256:V28nTib5yVUv+xLqU7O1TYDL6vprbl8IDsd8Cb756sY.' >> ~/.ssh/known_hosts 
              scp -oStrictHostKeyChecking=no -r ~/sean2121.github.io/_site/*. blog_sync@150.95.141.52:/var/www/test.com/public_html/
            
          
