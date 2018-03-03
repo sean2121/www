@@ -9,14 +9,22 @@ jobs:
       - checkout
 
 
+      - run:
+         name: Ruby dependencies
+         command: bundle install
+
+
+      - run:
+         name: Build
+         command: bundle exec jekyll build 
+
+
+
       - add_ssh_keys:
          fingerprints:
             - "22:77:57:a7:45:96:dd:78:46:ef:b5:e7:4b:93:e5:87"
 
-      - run:
-         name: test
-         command: |
-             ls -a ~/
+
       - run:
          name: Delopy
          command: |
