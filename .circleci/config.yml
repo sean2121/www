@@ -7,25 +7,22 @@ jobs:
     working_directory: ~/sean2121.github.io
     steps:
       - checkout
-    
-      - run:
-          name: Fetch CocoaPods Specs
-          command: |
-            mkdir ~/.ssh/
-            cat <<EOF > ~/.ssh/config
-            Host 150.95.141.52
-            StrictHostKeyChecking no
-            UserKnownHostsFile=/dev/null
-            EOF
-            chmod 600 ~/.ssh/config
+
 
       - add_ssh_keys:
          fingerprints:
-           - "22:77:57:a7:45:96:dd:78:46:ef:b5:e7:4b:93:e5:87"
+            - "22:77:57:a7:45:96:dd:78:46:ef:b5:e7:4b:93:e5:87"
 
-      - run: 
-         name: deploy
-         #command: scp -r ~/sean2121.github.io/_site/* blog_sync@150.95.141.52:/var/www/test.com/public_html/
+      - run:
+         name: test
          command: |
-           ls -a ~/.ssh/
+             ls -a ~/
+      - run:
+         name: Delopy
+         command: |
+             echo '150.95.141.52 SHA256:V28nTib5yVUv+xLqU7O1TYDL6vprbl8IDsd8Cb756sY.' >> ~/sean2121.github.io/.ssh/known_hosts 
+             scp -oStrictHostKeyChecking=no -r ~/sean2121.github.io/_site/*. blog_sync@150.95.141.52:/var/www/test.com/public_html/
+           
+         
+        
           
