@@ -5,11 +5,11 @@ url:
 # THEME-SPECIFIC CONFIGURATION
 theme_settings:
   # Meta
-  title: Timeless 
+  title: ever-green
   avatar: 
   favicon: 
   gravatar: # Email MD5 hash
-  description: "Timeless" # used by search engines
+  description: "http://ever-green.site/" # used by search engines
 
   # Header and footer text
   header_text: >
